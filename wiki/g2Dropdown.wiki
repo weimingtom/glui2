@@ -17,19 +17,39 @@ _AddDropDown_ will internally allocate and manage a newly created g2DropDown. Th
 == Function Members ==
 
 {{{
+void SetWidth(int Width)
+}}}
+Explicitly set the width of controller
+
+{{{
+int GetWidth()
+}}}
+Return the width of the controller
+
+{{{
 void SetOptions(const char** OptionLabels, int OptionCount)
 }}}
-Set the on-screen label options associated with each individual radio controller. The given OptionLabels is an array of c-strings (thus an array of character arrays) of OptionCount size, in order from index 0 to (OptionCount - 1) which is from top to bottom on-screen.
+Set the options via an array of strings
 
+{{{
+void SetSelectionIndex(int Index)
+}}}
+Set the current selection
+ 
 {{{
 int GetSelectionIndex()
 }}}
-Return the currently selected index the user has made, which is from 0 to (OptionCount - 1) (top to bottom on-screen).
+Get the current selection defaults to 0
 
 {{{
 void SetLiveVariable(int* LiveIndex = NULL)
 }}}
-Attach a live index, which is a variable updated at run-time when the user makes any changes to the selected index in the radio group.
+Add a live variable pass NULL (or leave blank) to disconect
+
+{{{
+bool InController(int x, int y)
+}}}
+Define controller geometry
 
 == Notes ==
 

@@ -16,20 +16,70 @@ _AddSpinner_ will internally allocate and manage a newly created g2Spinner. The 
 
 == Function Members ==
 
+// Set this controller's target width
 {{{
-void SetOptions(const char** OptionLabels, int OptionCount)
+void SetWidth(int Width)
 }}}
-Set the on-screen label options associated with each individual radio controller. The given OptionLabels is an array of c-strings (thus an array of character arrays) of OptionCount size, in order from index 0 to (OptionCount - 1) which is from top to bottom on-screen.
 
+// Get the width of this controller
 {{{
-int GetSelectionIndex()
+int GetWidth()
 }}}
-Return the currently selected index the user has made, which is from 0 to (OptionCount - 1) (top to bottom on-screen).
 
+// Set the value (as integer)
 {{{
-void SetLiveVariable(int* LiveIndex = NULL)
+void SetInt(int Value)
 }}}
-Attach a live index, which is a variable updated at run-time when the user makes any changes to the selected index in the radio group.
+
+// Get the int value
+{{{
+int GetInt()
+}}}
+
+// Set the value (as float)
+{{{
+void SetFloat(float Value)
+}}}
+
+// Get the float value
+{{{
+float GetFloat()
+}}}
+
+// Set the lower and upper mounds
+{{{
+void SetBounds(float min, float max)
+}}}
+{{{
+void SetBounds(int min, int max)
+}}}
+
+// Set the incrementation
+{{{
+void SetIncrement(float inc)
+}}}
+{{{
+void SetIncrement(int inc)
+}}}
+
+// Increment up or down
+{{{
+void IncrementUp()
+}}}
+{{{
+void IncrementDown()
+}}}
+
+// Add a live variable
+}}} pass NULL (or leave blank) to disconnect
+{{{
+void SetLiveVariable(float* LiveValue = NULL)
+}}}
+
+// Define controller geometry
+{{{
+bool InController(int x, int y)
+}}}
 
 == Notes ==
 

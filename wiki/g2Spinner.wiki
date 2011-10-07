@@ -1,13 +1,36 @@
-Change values based on two buttons or a [g2TextField]
+[http://i.imgur.com/JMIov.png]
 
-= Introduction =
+== About ==
 
-Add your content here.
+_[http://code.google.com/p/glui2/source/browse/trunk/Glui2/g2Spinner.h g2Spinner Header File]_
 
+A mutually exclusive group-selection controller; derives from [g2Controller]. The on-screen text is rendered by individual g2Labels. The user may select any of the individual controllers but will result in the deselection of any other radio controller within the ground.
 
-= Details =
+== Factory Method ==
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+{{{
+g2Spinner* AddSpinner(int x, int y, g2SpinnerType Type, __g2CallBack(callback) = 0, float* LiveValue = NULL)
+}}}
+
+_AddRadioGroup_ will internally allocate and manage a newly created g2RadioGroup. The given x and y integers are on-screen coordinates, assuming that the origin is the top left of the screen and that Y grows down and X grows right. The third argument "Options" is an array of c-strings (thus an array of character arrays) of OptionCount size that are the individual labels, in order from 0 to (OptionCount - 1). The fifth argument is a button-press callback event handler much like that found in [g2Button] but is optional. The final argument is a live-variable which will be updated at any time the user makes a change in the radio group, but is optional.
+
+== Function Members ==
+
+{{{
+void SetOptions(const char** OptionLabels, int OptionCount)
+}}}
+Set the on-screen label options associated with each individual radio controller. The given OptionLabels is an array of c-strings (thus an array of character arrays) of OptionCount size, in order from index 0 to (OptionCount - 1) which is from top to bottom on-screen.
+
+{{{
+int GetSelectionIndex()
+}}}
+Return the currently selected index the user has made, which is from 0 to (OptionCount - 1) (top to bottom on-screen).
+
+{{{
+void SetLiveVariable(int* LiveIndex = NULL)
+}}}
+Attach a live index, which is a variable updated at run-time when the user makes any changes to the selected index in the radio group.
+
+== Notes ==
+
+_No notes_

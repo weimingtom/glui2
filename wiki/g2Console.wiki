@@ -4,7 +4,7 @@
 
 _[http://code.google.com/p/glui2/source/browse/trunk/Glui2/g2Console.h g2Console Header File]_
 
-A mutually exclusive group-selection controller; derives from [g2Controller]. The on-screen text is rendered by individual g2Labels. The user may select any of the individual controllers but will result in the deselection of any other radio controller within the ground.
+A debugging console, much like a standard I/O console; derives from [g2Controller]. The on-screen text is rendered by using g2Controller character-rendering function members. The input is very similar to that of a [g2TextField].
 
 == Factory Method ==
 
@@ -12,7 +12,7 @@ A mutually exclusive group-selection controller; derives from [g2Controller]. Th
 g2Console* AddConsole()
 }}}
 
-_AddRadioGroup_ will internally allocate and manage a newly created g2RadioGroup. The given x and y integers are on-screen coordinates, assuming that the origin is the top left of the screen and that Y grows down and X grows right. The third argument "Options" is an array of c-strings (thus an array of character arrays) of OptionCount size that are the individual labels, in order from 0 to (OptionCount - 1). The fifth argument is a button-press callback event handler much like that found in [g2Button] but is optional. The final argument is a live-variable which will be updated at any time the user makes a change in the radio group, but is optional.
+_AddConsole_ will internally allocate and manage a newly created g2Console. The console factory method does not take any arguments as none are needed; the console is purely a string input / output manager, similar to a debugging console.
 
 == Function Members ==
 
@@ -33,4 +33,4 @@ Attach a live index, which is a variable updated at run-time when the user makes
 
 == Notes ==
 
-_No notes_
+It may be easier to use the g2Console in an application than command-line as a tool for debugging at run-time. Any input given or output received from the console is redirected to the standard input / output streams.

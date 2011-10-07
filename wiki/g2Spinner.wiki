@@ -4,7 +4,7 @@
 
 _[http://code.google.com/p/glui2/source/browse/trunk/Glui2/g2Spinner.h g2Spinner Header File]_
 
-A mutually exclusive group-selection controller; derives from [g2Controller]. The on-screen text is rendered by individual g2Labels. The user may select any of the individual controllers but will result in the deselection of any other radio controller within the ground.
+A floating-point or integer value incriminator or decrement button pair; derives from [g2Controller]. The on-screen text is rendered by a [g2TextField] which also attempts to parse user input if valid. The user may press the adjacent up or down buttons to either increase or decrease the g2TextField on-screen value.
 
 == Factory Method ==
 
@@ -12,7 +12,7 @@ A mutually exclusive group-selection controller; derives from [g2Controller]. Th
 g2Spinner* AddSpinner(int x, int y, g2SpinnerType Type, __g2CallBack(callback) = 0, float* LiveValue = NULL)
 }}}
 
-_AddRadioGroup_ will internally allocate and manage a newly created g2RadioGroup. The given x and y integers are on-screen coordinates, assuming that the origin is the top left of the screen and that Y grows down and X grows right. The third argument "Options" is an array of c-strings (thus an array of character arrays) of OptionCount size that are the individual labels, in order from 0 to (OptionCount - 1). The fifth argument is a button-press callback event handler much like that found in [g2Button] but is optional. The final argument is a live-variable which will be updated at any time the user makes a change in the radio group, but is optional.
+_AddSpinner_ will internally allocate and manage a newly created g2Spinner. The given x and y integers are on-screen coordinates, assuming that the origin is the top left of the screen and that Y grows down and X grows right. The third argument is the type of the spinner, which will either be an integer-type (g2SpinnerType_Int) or a floating-point type (g2SpinnerType_Float). The fourth argument is a button-press callback event handler much like that found in [g2Button] but is optional. The final argument is a live-variable which will be updated at any time the user makes a change in the radio group, but is optional.
 
 == Function Members ==
 
@@ -33,4 +33,4 @@ Attach a live index, which is a variable updated at run-time when the user makes
 
 == Notes ==
 
-_No notes_
+Don't forget that you can set upper and lower bounds, as well as set the rate of change when a user presses either the increment or decrement buttons.

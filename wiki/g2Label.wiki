@@ -1,3 +1,5 @@
+[http://i.imgur.com/VHl2N.png]
+
 == About ==
 
 _[http://code.google.com/p/glui2/source/browse/trunk/Glui2/g2Label.h g2Label Header File]_

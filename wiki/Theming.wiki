@@ -21,7 +21,7 @@ Example as follows:
 The internal implementation is based on a linked-list of groups with each group having a linked-list of key-data pairs. Though this could be implemented as a hash-map, the goal of GLUI2 is to keep code simple and maintainable; adding the STL map struct is too unruly to work with, ugly, and big...
 
 ==== Configuration Variables ====
-The follow are the group names and key values that are required for a theme
+The follow are the group names and key values that are required for a theme. There are in total 11 controllers that need to be defined, but with some controllers having a "pressed" and / or "disabled" state that needs to be defined (for example a radio-button has four states). Each group requires a point and size integer-tuple keys to describe the origin of a theme area (position origin is top-left of the image where X grows to the right and Y grows to the bottom). You can have overlapping or reused segments.
 
 {{{
 [general]

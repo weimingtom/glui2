@@ -4,7 +4,7 @@
 
 _[http://code.google.com/p/glui2/source/browse/trunk/Glui2/g2ProgressBar.h g2ProgressBar Header File]_
 
-A mutually exclusive group-selection controller; derives from [g2Controller]. The on-screen text is rendered by individual g2Labels. The user may select any of the individual controllers but will result in the deselection of any other radio controller within the ground.
+A bar that gets filled based on a progress variable; derives from [g2Controller].
 
 == Factory Method ==
 
@@ -12,7 +12,7 @@ A mutually exclusive group-selection controller; derives from [g2Controller]. Th
 g2ProgressBar* AddProgressBar(int x, int y)
 }}}
 
-_AddRadioGroup_ will internally allocate and manage a newly created g2RadioGroup. The given x and y integers are on-screen coordinates, assuming that the origin is the top left of the screen and that Y grows down and X grows right. The third argument "Options" is an array of c-strings (thus an array of character arrays) of OptionCount size that are the individual labels, in order from 0 to (OptionCount - 1). The fifth argument is a button-press callback event handler much like that found in [g2Button] but is optional. The final argument is a live-variable which will be updated at any time the user makes a change in the radio group, but is optional.
+_AddProgressBar_ will internally allocate and manage a newly created g2ProgressBar. The given x and y integers are on-screen coordinates, assuming that the origin is the top left of the screen and that Y grows down and X grows right. By default the progress is set to 0.5 on a scale of [0, 1].
 
 == Function Members ==
 
@@ -33,4 +33,4 @@ Attach a live index, which is a variable updated at run-time when the user makes
 
 == Notes ==
 
-_No notes_
+Make sure to change your scale to help you when interfacing with a non-normalized value.

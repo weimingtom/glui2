@@ -1,3 +1,16 @@
+=== About ===
+
+Glui2, OpenGL User Interface Library, is a light-weight feature-rich stand-alone Graphical User Interface (GUI) for OpenGL and GLUT applications. Written in C++, it is clean, easy to maintain, well documented, and supports Linux, Windows, and OSX. (Only 9k lines of code!)
+
+Glui2, based on the original GLUI library by Paul Rademacher, is a full re-write based on a minimalistic design. This project uses similar methods and programing interface, but now includes GUI theming, easier integration, better performance, easier extensions, full documentation, and a clean implementation in portable C++. Checkout what the project looks like through our screenshots page!
+
+Why use Glui2 versus all the other hundreds of GUI libraries? One big advantage is that it has a very small code base (9KLOC) and interfacing footprint. Unlike wxWidgest or all the other libraries, this code is ready to go and easy to use. Nothing complex, no annoying overhead, or bulky boilerplate, etc. It truely is ready to go out of the box and extensible!
+
+This library is designed to be used for scientific applications, academic usage, interactive media applications, etc.
+
+=== General Design ===
+
+The general design, much like the original GLUI library, was to use a factory-methods approach so that GUI objects were internally managed by the library and quick to create for end-developers. All rendering is done based on an n-degree tree, so that any controller could have any number of child controllers. All controllers (With the exception fo g2Dialog) extends from [g2Controller] which acts as a virtual root class that manages events, inputs, outputs, and theming.
 
 === GUI Controllers ===
 

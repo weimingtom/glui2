@@ -1,7 +1,7 @@
   * [Introduction]
     * [Screenshots]
   * [StandardsAndStyles Standards & Styles]
-  * [SoftwareArchitectureAndDesign]
+  * [SoftwareArchitectureAndDesign Software Architecture & Design]
   * [Controllers]
     * [g2Spinner]
     * [g2Slider]

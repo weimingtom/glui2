@@ -17,19 +17,34 @@ _AddSlider_ will internally allocate and manage a newly created g2Slider. The gi
 == Function Members ==
 
 {{{
-void SetOptions(const char** OptionLabels, int OptionCount)
+void SetLiveVariable(float* LiveValue = NULL)
 }}}
-Set the on-screen label options associated with each individual radio controller. The given OptionLabels is an array of c-strings (thus an array of character arrays) of OptionCount size, in order from index 0 to (OptionCount - 1) which is from top to bottom on-screen.
+Add a live variable pass NULL (or leave blank) to disconect
 
 {{{
-int GetSelectionIndex()
+void SetBounds(float Lower, float Upper)
 }}}
-Return the currently selected index the user has made, which is from 0 to (OptionCount - 1) (top to bottom on-screen).
+Set the min / max bounds of the progress bar; defaults to [0.0, 1.0]
 
 {{{
-void SetLiveVariable(int* LiveIndex = NULL)
+void SetProgress(float Progress)
 }}}
-Attach a live index, which is a variable updated at run-time when the user makes any changes to the selected index in the radio group.
+Set the current progress of this progress bar accepts values from 0 to 1 (floats)
+
+{{{
+float GetProgress()
+}}}
+Return the current progress
+
+{{{
+void SetWidth(int Width)
+}}}
+Set the width of the button in pixels
+
+{{{
+bool InController(int x, int y)
+}}}
+Define controller geometry
 
 == Notes ==
 

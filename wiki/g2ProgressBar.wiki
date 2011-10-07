@@ -17,19 +17,39 @@ _AddProgressBar_ will internally allocate and manage a newly created g2ProgressB
 == Function Members ==
 
 {{{
-void SetOptions(const char** OptionLabels, int OptionCount)
+g2ProgressBar(g2Controller* Parent, g2Theme* MainTheme)
 }}}
-Set the on-screen label options associated with each individual radio controller. The given OptionLabels is an array of c-strings (thus an array of character arrays) of OptionCount size, in order from index 0 to (OptionCount - 1) which is from top to bottom on-screen.
+Progress bar constructor
 
 {{{
-int GetSelectionIndex()
+const g2Label* GetLabel()
 }}}
-Return the currently selected index the user has made, which is from 0 to (OptionCount - 1) (top to bottom on-screen).
+Get access to the label that is centered on the button
 
 {{{
-void SetLiveVariable(int* LiveIndex = NULL)
+void SetBounds(float Lower, float Upper)
 }}}
-Attach a live index, which is a variable updated at run-time when the user makes any changes to the selected index in the radio group.
+Set the min / max bounds of the progress bar; defaults to [0.0, 1.0]
+ 
+{{{
+void SetProgress(float Progress)
+}}}
+Set the current progress of this progress bar; default bounds are [0.0, 1.0]
+
+{{{
+void SetText(const char* Text)
+}}}
+Set the button's text note that the button will grow if needed
+
+{{{
+void SetWidth(int Width)
+}}}
+Set the width of the button in pixels
+
+{{{
+bool InController(int x, int y)
+}}}
+Define controller geometry
 
 == Notes ==
 

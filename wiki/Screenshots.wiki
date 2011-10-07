@@ -1,13 +1,30 @@
--Don't forget we have an example video at [http://www.youtube.com/watch?v=TbX7k4NfGgQ YouTube]!_
+*_Don't forget we have an example video at [http://www.youtube.com/watch?v=TbX7k4NfGgQ YouTube]!_*
 
-http://i.imgur.com/34DIX.png
+_Windows XP Example:_
 
 http://i.imgur.com/Yy5LZ.png
 
+
+_Linux Xorg Example:_
+
+http://i.imgur.com/34DIX.png
+
+
+_Windows Theming Example:_
+
 http://i.imgur.com/0Ys05.png
+
+
+_"Blue Theme" Custom Theming Example:_
 
 http://i.imgur.com/saQPc.png
 
+
+_Real-World Example Application:_
+
 http://i.imgur.com/Qxgq3.png
+
+
+_Custom Controller Extension Example:_
 
 http://i.imgur.com/j4UDf.png

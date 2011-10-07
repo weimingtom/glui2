@@ -4,7 +4,7 @@
 
 _[http://code.google.com/p/glui2/source/browse/trunk/Glui2/g2Dropdown.h g2Dropdown Header File]_
 
-A mutually exclusive group-selection controller; derives from [g2Controller]. The on-screen text is rendered by individual g2Labels. The user may select any of the individual controllers but will result in the deselection of any other radio controller within the ground.
+A mutually exclusive group-selection controller; derives from [g2Controller] and conceptually (but not visually) similar to [g2RadioGroup]. The on-screen text is rendered by individual [g2Button]s but the list is only visible when the user explicitly opens and closes the list through clicks and drag events.
 
 == Factory Method ==
 
@@ -12,7 +12,7 @@ A mutually exclusive group-selection controller; derives from [g2Controller]. Th
 g2DropDown* AddDropDown(int x, int y, const char** Options, int OptionCount, __g2CallBack(callback) = 0, int* LiveIndex = NULL)
 }}}
 
-_AddRadioGroup_ will internally allocate and manage a newly created g2RadioGroup. The given x and y integers are on-screen coordinates, assuming that the origin is the top left of the screen and that Y grows down and X grows right. The third argument "Options" is an array of c-strings (thus an array of character arrays) of OptionCount size that are the individual labels, in order from 0 to (OptionCount - 1). The fifth argument is a button-press callback event handler much like that found in [g2Button] but is optional. The final argument is a live-variable which will be updated at any time the user makes a change in the radio group, but is optional.
+_AddDropDown_ will internally allocate and manage a newly created g2DropDown. The given x and y integers are on-screen coordinates, assuming that the origin is the top left of the screen and that Y grows down and X grows right. The third argument "Options" is an array of c-strings (thus an array of character arrays) of OptionCount size that are the individual labels, in order from 0 to (OptionCount - 1). The fifth argument is a button-press callback event handler much like that found in [g2Button] but is optional. The final argument is a live-variable which will be updated at any time the user makes a change in the option group, but is optional.
 
 == Function Members ==
 
@@ -33,4 +33,4 @@ Attach a live index, which is a variable updated at run-time when the user makes
 
 == Notes ==
 
-_No notes_
+DropDowns are a great way at packing lots of information but in small visual areas. Make sure to correctly choose your scene ordering as the level that the drop down controller is rendered may be behind or infront of other controllers creating bizarre visual effects.

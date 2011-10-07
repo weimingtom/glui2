@@ -17,19 +17,19 @@ _AddConsole_ will internally allocate and manage a newly created g2Console. The 
 == Function Members ==
 
 {{{
-void SetOptions(const char** OptionLabels, int OptionCount)
+void printf(const char* format, ...)
 }}}
-Set the on-screen label options associated with each individual radio controller. The given OptionLabels is an array of c-strings (thus an array of character arrays) of OptionCount size, in order from index 0 to (OptionCount - 1) which is from top to bottom on-screen.
+Print to the buffer
 
 {{{
-int GetSelectionIndex()
+char* gets()
 }}}
-Return the currently selected index the user has made, which is from 0 to (OptionCount - 1) (top to bottom on-screen).
+Read off the latest string command the user as typed in based on FIFO order. May return null if there is nothing in the buffer. Note that the returned buffer MUST be released when you are done with it.
 
 {{{
-void SetLiveVariable(int* LiveIndex = NULL)
+bool InController(int x, int y)
 }}}
-Attach a live index, which is a variable updated at run-time when the user makes any changes to the selected index in the radio group.
+Define controller geometry
 
 == Notes ==
 

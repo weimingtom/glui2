@@ -4,7 +4,7 @@
 
 _[http://code.google.com/p/glui2/source/browse/trunk/Glui2/g2CheckBox.h g2CheckBox Header File]_
 
-A mutually exclusive group-selection controller; derives from [g2Controller]. The on-screen text is rendered by individual g2Labels. The user may select any of the individual controllers but will result in the deselection of any other radio controller within the ground.
+An on/off switch, much like a button; derives from [g2Controller]. The on-screen text is rendered by a [g2Label]. Any number of check boxes may be on (selected) or off (deselected).
 
 == Factory Method ==
 
@@ -12,7 +12,7 @@ A mutually exclusive group-selection controller; derives from [g2Controller]. Th
 g2CheckBox* AddCheckBox(int x, int y, const char* Text, __g2CallBack(callback) = 0, bool* LiveCheckState = NULL)
 }}}
 
-_AddRadioGroup_ will internally allocate and manage a newly created g2RadioGroup. The given x and y integers are on-screen coordinates, assuming that the origin is the top left of the screen and that Y grows down and X grows right. The third argument "Options" is an array of c-strings (thus an array of character arrays) of OptionCount size that are the individual labels, in order from 0 to (OptionCount - 1). The fifth argument is a button-press callback event handler much like that found in [g2Button] but is optional. The final argument is a live-variable which will be updated at any time the user makes a change in the radio group, but is optional.
+_AddCheckBox_ will internally allocate and manage a newly created g2CheckBox. The given x and y integers are on-screen coordinates, assuming that the origin is the top left of the screen and that Y grows down and X grows right. The third argument "Text" is a c-string rendered to the right of the button using [g2Label]. The fourth argument is a state-change callback event handler much like that found in [g2Button] but is optional. The final argument is a live-variable which will be updated at any time the user makes a change in the radio group, but is optional.
 
 == Function Members ==
 

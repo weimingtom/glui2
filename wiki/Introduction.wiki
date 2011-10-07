@@ -1,0 +1,27 @@
+
+=== GUI Controllers ===
+
+Currently the project implements the following GUI controllers (12 in all), but allows for end-developers to quickly make extensions (all controllers, except [g2Dialog] extend from [g2Controller]):
+
+  * Labels (bitmap font) as [g2Label]
+  * Buttons as [g2Button]
+  * Text Fields as [g2TextField]
+  * Radio Button / Group as [g2RadioGroup]
+  * CheckBox as [g2CheckBox]
+  * Console as [g2Console]
+  * Spinner as [g2Spinner]
+  * Dropdown Selection as [g2Dropdown]
+  * Progress Bar as [g2ProgressBar]
+  * Sliders (Horizontal / vertical) as [g2Slider]
+  * Panels as [g2Panel]
+  * Cross platform open/save dialogs as [g2Dialog]
+
+=== Programming Interface ===
+
+This library takes a "[http://en.wikipedia.org/wiki/Factory_method_pattern Factory Method]" approach to GUI controller instantiation. This is done to internally manage the rendering scene and to simplify object ownership. This also minimizes [http://en.wikipedia.org/wiki/Boilerplate_(text)#Boilerplate_code boilerplate code] associated with scene creation. All GUI controllers are programmatically generated and controlled; it is possible, but not an implemented feature, to open / save / close a user interface language (similar concept to [http://en.wikipedia.org/wiki/XUL XUL]).
+
+Attaching Glui2 with a new OpenGL application or existing codebase is easy! Simply instantiate a Glui2 controller object and bind any overloaded callbacks you want with GLUT's own interface. To create UI Controllers (GUI elements), use the factory methods (such as "Glui2::addLabel(...)") at any point in your code. To make sure everything is drawn in the right order, call the "Glui2::Render()" function right at the end of your own rendering cycle. That's it! It's as simple as:
+
+  # *Instantiate* a [glui2] object and rebind with your (new or old) GLUT functions
+  # Using the [glui2] *factory methods*, create all your GUI controllers
+  # Make sure to explicitly call the ... WIP

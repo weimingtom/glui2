@@ -1,1 +1,139 @@
-How to create a theme; have to go through g2Config and the .cfg format I created...
+=== Themes ===
+All theme files are a combination of three different files: a .cfg file describing the locations of each controller, a .png for the controller images themselves, as well as a .png for the character bitmap (used as a bitmap font). These three files can be named anything but must end in .cfg if it is the theme description file or .png if they are the image files. The source image files must be refereed in the configuration file, as described bellow.
+
+Included in the project are two complete theme files: g2Default.cfg and g2Blue.cfg
+
+=== Config Files ===
+Configuration files closely resemble window's INI file format for simplicity and clarity. All keys must be in a group, and groups are defined as a string encased within brackets (i.e. group?). Group names are not case sensitive, and neither are key names. Data for each key can be anything, ranging from integers to strings, but it must be ascii-encoded (i.e. written in plain-text, not in native binary).
+
+Example as follows:
+
+{{{
+ # This is a comment, started using a hash character
+ [group_name]          # Group name of key-value pairs; do not use brackets within the name
+ key1: Some data       # Example of key-value pair (or instead of ':' use '=')
+ key2: More data
+ key3: Any data!
+ key: This is an example of multi-line text; the new line MUST either
+      be tabbed or include 4 or more space characters.
+}}}
+
+The internal implementation is based on a linked-list of groups with each group having a linked-list of key-data pairs. Though this could be implemented as a hash-map, the goal of GLUI2 is to keep code simple and maintainable; adding the STL map struct is too unruly to work with, ugly, and big...
+
+==== Configuration Variables ====
+The follow are the group names and key values that are required for a theme
+
+{{{
+[general]
+image: g2Default.png         # Location of the source image
+font: default.png                # Location fo the font
+background_color: 255 255 255
+
+[Button]
+point: 6 70
+size: 52 16
+
+[Button_pressed]
+point: 6 87
+size: 52 16
+
+[Button_Disabled]
+point: 6 104
+size: 52 16
+
+[checkbox]
+point: 31 54
+size: 12 12
+
+[checkbox_Disabled]
+point: 17 54
+size: 12 12
+
+[CheckBox_Pressed]
+point: 31 40
+size: 12 12
+
+[checkbox_Selected_Disabled]
+point: 17 40
+size: 12 12
+
+[TextField]
+point: 64 74
+size: 49 21
+
+[TextField_Disabled]
+point: 64 96
+size: 49 21
+
+[RadioButton]
+point: 97 53
+size: 14 14
+
+[RadioButton_Disabled]
+point: 82 53
+size: 14 14
+
+[RadioButton_Pressed]
+point: 97 38
+size: 14 14
+
+[RadioButton_Pressed_Disabled]
+point: 82 38
+size: 14 14
+
+[ProgressBar]
+point: 113 1
+size: 52 16
+
+[ProgressBar_Fill]
+point: 113 35
+size: 52 16
+
+[ProgressBar_Disabled]
+point: 113 18
+size: 52 16
+
+[DropDown]
+point: 70 50
+size: 11 17
+
+[DropDown_Pressed]
+point: 58 50
+size: 11 17
+
+[DropDown_Disabled]
+point: 58 32
+size: 11 17
+
+[Spinner]
+point: 18 4
+size: 12 16
+
+[Spinner_Pressed]
+point: 31 4
+size: 12 16
+
+[Spinner_Disabled]
+point: 44 4
+size: 12 16
+
+[Panel]
+point: 0 0
+size: 10 10
+
+[Slider]
+point: 7 126
+size: 111 4
+
+[SliderButton]
+point: 7 132
+size: 11 21
+
+[SliderButton_Pressed]
+point: 19 132
+size: 11 21
+
+[SliderButton_Disabled]
+point: 31 132
+size: 11 21
+}}}

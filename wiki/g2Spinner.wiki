@@ -16,70 +16,70 @@ _AddSpinner_ will internally allocate and manage a newly created g2Spinner. The 
 
 == Function Members ==
 
-// Set this controller's target width
 {{{
 void SetWidth(int Width)
 }}}
+Set this controller's target width
 
-// Get the width of this controller
 {{{
 int GetWidth()
 }}}
+Get the width of this controller
 
-// Set the value (as integer)
 {{{
 void SetInt(int Value)
 }}}
+Set the value (as integer)
 
-// Get the int value
 {{{
 int GetInt()
 }}}
+Get the int value
 
-// Set the value (as float)
 {{{
 void SetFloat(float Value)
 }}}
+Set the value (as float)
 
-// Get the float value
 {{{
 float GetFloat()
 }}}
+Get the float value
 
-// Set the lower and upper mounds
 {{{
 void SetBounds(float min, float max)
 }}}
+Set the lower and upper mounds
+
 {{{
 void SetBounds(int min, int max)
 }}}
+Set the lower and upper mounds
 
-// Set the incrementation
 {{{
 void SetIncrement(float inc)
 }}}
+Set the incrementation
+
 {{{
 void SetIncrement(int inc)
 }}}
+Set the incrementation
 
-// Increment up or down
 {{{
 void IncrementUp()
 }}}
+Increment up or down
+
 {{{
 void IncrementDown()
 }}}
+Increment up or down
 
-// Add a live variable
-}}} pass NULL (or leave blank) to disconnect
 {{{
 void SetLiveVariable(float* LiveValue = NULL)
 }}}
-
-// Define controller geometry
-{{{
-bool InController(int x, int y)
-}}}
+Add a live variable; pass NULL (or leave blank) to disconnect
 
 == Notes ==
 

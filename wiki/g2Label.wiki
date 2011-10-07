@@ -14,16 +14,24 @@ _AddLabel_ will internally allocate and manage a newly created g2Label. The give
 
 == Function Members ==
 
-{{{void SetText(const char* Text = NULL)}}}
+{{{
+void SetText(const char* Text = NULL)
+}}}
 Sets the current label's text buffer to the given Text input; if no argument is passed or NULL is passed, then the string will be set to an empty-string.
 
-{{{const char* GetText()}}}
+{{{
+const char* GetText()
+}}}
 Returns a reference to the internal buffer of the g2Label's text. This buffer may be released upon the object's destruction or at any time that "SetText(...)" is called. Thus, you should copy this buffer yourself and not rely on it's contents from being continuously allocated throughout the run-time.
 
-{{{void SetSize(float Scale)}}}
+{{{
+void SetSize(float Scale)
+}}}
 Set the text output's rendered size based on any positive value. Note that a value of one (1.0f) will result in the default per-pixel size of the source character bitmap image.
 
-{{{int GetWidth()}}}
+{{{
+int GetWidth()
+}}}
 Returns the number of pixels, in width, that this label takes.
 
 == Notes ==

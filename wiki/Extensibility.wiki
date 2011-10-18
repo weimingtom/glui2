@@ -4,6 +4,7 @@ Glui2 allows you to easily create your own new on-screen controllers. Each contr
 === Usage ===
 To create your own controller, you will need to create a class that derives from [g2Controller] and passes both the parent object and a pointer to a theme object. The best approach, as mentioned above, is to do pass your main Glui2's root controller (using "GetRootController()") and theme "GetMainTheme()".
 
+==== Overloaded Functions ====
 Your class should overload the following class members from g2Controller to benefit from the described features: (_note that none of these are pure-virtual functions and thus do not have to be overloaded, but each overloaded function provides access to core features associated with user interface elements_)
 
 {{{
@@ -54,3 +55,73 @@ void MouseDrag(int x, int y)
 }}}
 
 _Description:_ A localized mouse event, meaning the given coordinates are relative to your controller's origin, and is only giving if the start of the drag even was within your controller.
+
+==== Rendering Functions ====
+
+g2Controller provides several wrapper functions to allow you to quickly render a sub-image from the source theme image using [Theming configuration-file] keys or predetermined coordinates. You should *only* call these rendering functions during the render cycle of your controller, which is in your overloaded "Render(...)" function derived from [g2Controller]. Notice that most of these functions take either a key-string used to find the configuration-file definition, or an enumeration value of g2ThemeElement which is used for all pre-defined UI controllers.
+
+{{{
+void DrawComponent(g2ThemeElement ElementType, int DestX, int DestY)
+}}}
+
+_Description:_ Draw a given built-in controller to the given global coordinates (defaults to pre-defined width / height).
+
+{{{
+void DrawComponent(g2ThemeElement ElementType, int DestX, int DestY, int DestW, int DestH)
+}}}
+
+_Description:_ Draw a given built-in controller to the given global coordinates and given height and width.
+
+{{{
+void DrawComponent(const char* ElementName, int DestX, int DestY)
+}}}
+
+_Description:_ Draw a given user-defined controller to the given global coordinates (defaults to pre-defined width / height).
+
+{{{
+void DrawComponent(const char* ElementName, int DestX, int DestY, int DestW, int DestH)
+}}}
+
+_Description:_ Draw a given built-in controller to the given global coordinates and given height and width.
+
+{{{
+void DrawComponent(int DestX, int DestY, int DestW, int DestH, float SrcX, float SrcY, float SrcW, float SrcH, int TextID)
+}}}
+
+_Description:_ Draws a defined sub-image from the given texture ID (defaults to the theme image) to the given output coordinate and size.
+
+{{{
+void DrawComponentStretch(g2ThemeElement ElementType, int DestX, int DestY, int Width)
+}}}
+
+_Description:_ Draw a given built-in controller to the given coordinate and width; notice that unlike other methods, this rendering function will cut the source image into three equal parts, then only stretch the middle (non-repeating; this is a stretch).
+
+{{{
+void DrawComponentStretch(const char* ElementName, int DestX, int DestY, int Width)
+}}}
+
+_Description:_ Draw a given user-defined controller to the given coordinate and width; notice that unlike other methods, this rendering function will cut the source image into three equal parts, then only stretch the middle (non-repeating; this is a stretch).
+
+{{{
+void DrawComponentStretch(g2ThemeElement ElementType, int DestX, int DestY, int Width, int StartHeight, int EndHeight)
+}}}
+
+_Description:_ Draw a given built-in controller to the given coordinate, width, and height; notice that unlike other methods, this rendering function will cut the source image into nine equal parts (3x3), then only stretch the horizontal middle (non-repeating; this is a stretch) to fit, while repeating the vertical middle until filled. Commonly used to render window-like objects that vary in size for both dimensions.
+
+{{{
+void DrawCharacter(int DestX, int DestY, char Character)
+}}}
+
+_Description:_ Draw a given character from the theme file's character bitmap at the given position.
+
+{{{
+void DrawCharacter(int DestX, int DestY, float ScaleW, float ScaleH, char Character)
+}}}
+
+_Description:_ Draw a given character from the theme file's character bitmap at the given position with a given scale.
+
+{{{
+void DrawCharacter(int DestX, int DestY, float ScaleW, float ScaleH, float R, float G, float B, float A, char Character)
+}}}
+
+_Description:_ Draw a given character from the theme file's character bitmap at the given position with a given scale and given color.

@@ -8,6 +8,23 @@ Why use Glui2 versus all the other hundreds of GUI libraries? One big advantage 
 
 This library can easily be integrated with existing or new OpenGL applications designed for interactive media, scientific applications, academic usage, and more!
 
+==== Features ====
+  * 2D Rendering using OpenGL
+  * Fast and efficient code base
+  * Written in portable C/C++
+  * Copiles on Windows, OSX, and Linux as dynamic library
+  * Uses object-oriented programming patterns
+  * Uses factory-method object instantiation
+  * Child-parent relationships
+  * Copy/paste text within and outside of the application
+  * On-screen console (with coloring)
+  * 12built-in controllers (buttons, check-boxes, panels, etc)
+  * Skinnable themes
+  * Works with GLUT
+  * Small (7.5k lines of code), 1-2MB compiled
+  * Sample code
+  * Well documented
+
 === General Design ===
 
 All on-screen renderable controllers derive from [g2Controller] which manages memory, theming, user input, and provides several rendering functions. g2Controllers allow any number of child objects to be added, as well as be added to any other controller. New properties set to a parent object propagate to child objects. This includes propagation of visibility, enable-states, positioning, and more.

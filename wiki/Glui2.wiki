@@ -1,0 +1,1 @@
+_Please note this article describes the core Glui2 class, and is thus not an [Introduction]_

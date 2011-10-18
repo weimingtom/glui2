@@ -4,7 +4,7 @@
 
 _[http://code.google.com/p/glui2/source/browse/trunk/Glui2/g2TextField.h g2TextField Header File]_
 
-An interactive text-input field; derives from [g2Controller]. The on-screen text is fully editable based on a cursor's position. The user may enter any character or only characters that end-developers allow through a filter. The on-screen text is rendered directly using g2Controller function-members.
+An interactive text-input field; derives from [g2Controller]. The on-screen text is fully editable based on [g2LabelEdit]. The user may enter any character or only characters that end-developers allow through a filter.
 
 == Factory Method ==
 

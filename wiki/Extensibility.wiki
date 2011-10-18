@@ -1,6 +1,8 @@
 === About ===
 Glui2 allows you to easily create your own new on-screen controllers. Each controller should derive from the root controller class [g2Controller] and can be instantiated as a normal object. Since controllers always need a parent controller, use your main [Glui2]'s "GetRootController()" function.
 
+Please see [ExamplesAndUsage Examples]'s Example4 to learn more about custom controllers.
+
 === Usage ===
 To create your own controller, you will need to create a class that derives from [g2Controller] and passes both the parent object and a pointer to a theme object. The best approach, as mentioned above, is to do pass your main Glui2's root controller (using "GetRootController()") and theme "GetMainTheme()".
 
@@ -125,3 +127,24 @@ void DrawCharacter(int DestX, int DestY, float ScaleW, float ScaleH, float R, fl
 }}}
 
 _Description:_ Draw a given character from the theme file's character bitmap at the given position with a given scale and given color.
+
+==== Helper Functions ====
+The following are a few helper functions that are useful for a variety of tasks but not associated with function overloading or rendering:
+
+{{{
+g2ControllerState GetControllerState()
+}}}
+
+_Description:_ Returns the controller state which contains the user's interactive state with this controller alone. It is generally used during the update cycle for dealing with user interaction, but without the need to overload any of the above-mentioned user input functions.
+
+{{{
+bool GetActive()
+}}}
+
+_Description:_ Returns true if this controller is actively selected by the user.
+
+{{{
+bool InController(int x, int y)
+}}}
+
+_Description:_ Returns true if we are currently intersecting this controller given a local coordinate and the collision geometry defined by overloading the "GetCollisionRect(...)" described above.

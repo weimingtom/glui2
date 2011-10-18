@@ -17,7 +17,11 @@ http://i.imgur.com/0Ys05.png
 
 _"Blue Theme" Custom Theming Example:_
 
-http://i.imgur.com/saQPc.png
+http://i.imgur.com/rbpMR.png
+
+_In-Line Console Example_
+
+http://i.imgur.com/WkE3p.png
 
 
 _Real-World Example Application:_

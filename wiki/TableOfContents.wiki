@@ -1,6 +1,5 @@
   * [Introduction]
-    * [Screenshots Screenshots & Video]
-  * [SoftwareArchitectureAndDesign Software Architecture & Design]
+  * [Screenshots Screenshots & Video]
   * [Controllers]
     * [g2Spinner]
     * [g2Slider]

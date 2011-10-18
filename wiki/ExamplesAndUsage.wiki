@@ -68,6 +68,33 @@ void ButtonPressed(g2Controller* Caller)
 Button->SetCallback(ButtonPressed);
 }}}
 
+One final step is you install your Glui2's render handle. This is left up to you so that you can manipulate when and where to draw the final GUI output. For most uses, it is best to put the Glui2's "Render()" member-function call at the end of your GLUT render callback.
+
+{{{
+
+// Render function
+void Render()
+{
+    // This is REQUIRED to call, at least at some point in your render loop
+    GluiHandle->Render();
+}
+
+// Initialization function:
+void Init()
+{
+    // Initialize Glui2
+    GluiHandle = new Glui2();
+    
+    // Do scene-generation work... (as seen above)
+    
+    // Bind your display function for GLUT
+    glutDisplayFunc(Render);
+}
+
+}}}
+
+Once your controllers have been registered and the render-function is correctly placed, you may start with your GLUT main-loop and thus launch you application!
+
 === Examples ===
 The following are descriptions of six examples included in the source of Glui2. You can fine these directories by navigating the root of the project's directory, then going into the "Example" directory, then go into any of the below examples. Each example compiles in either OSX, Windows, or Linux. Please see above on how to compile Glui / individual examples.
 

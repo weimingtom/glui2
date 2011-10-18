@@ -4,7 +4,7 @@ Glui2 allows you to easily create your own new on-screen controllers. Each contr
 === Usage ===
 To create your own controller, you will need to create a class that derives from [g2Controller] and passes both the parent object and a pointer to a theme object. The best approach, as mentioned above, is to do pass your main Glui2's root controller (using "GetRootController()") and theme "GetMainTheme()".
 
-Your class should overload the following class members from g2Controller to benefit from the described features: (_note that none of these have to be overloaded, but each overloaded function provides access to core features associated with user interface elements_)
+Your class should overload the following class members from g2Controller to benefit from the described features: (_note that none of these are pure-virtual functions and thus do not have to be overloaded, but each overloaded function provides access to core features associated with user interface elements_)
 
 {{{
 void Update(float dT)

@@ -1,16 +1,22 @@
 === About ===
 
-Glui2, OpenGL User Interface Library, is a light-weight feature-rich stand-alone Graphical User Interface (GUI) for OpenGL and GLUT applications. Written in C++, it is clean, easy to maintain, well documented, and supports Linux, Windows, and OSX. (Only 9k lines of code!)
+Glui2, an OpenGL User Interface Library, is a light-weight feature-rich stand-alone Graphical User Interface (GUI) for OpenGL and GLUT applications. Written in C/C++, it is clean to use, easy to extend, well documented, and supports Linux, Windows, and OSX, as well as is very small! (Only 7.5k lines of code!)
 
-Glui2, based on the original GLUI library by Paul Rademacher, is a full re-write based on a minimalistic design. This project uses similar methods and programing interface, but now includes GUI theming, easier integration, better performance, easier extensions, full documentation, and a clean implementation in portable C++. Checkout what the project looks like through our screenshots page!
+Glui2, based on the original GLUI library by [http://www.cs.unc.edu/~rademach/glui/ Paul Rademacher], is a full re-write from scratch based on a similar minimalistic design. This project uses similar methods and programing interfaces, but now includes GUI theming, easier integration with applications, better performance (2D hardware acceleration), easier extending of new controllers, full documentation, and a clean implementation in portable C++. Checkout what the project looks like through our [Screenshots screenshots] page!
 
-Why use Glui2 versus all the other hundreds of GUI libraries? One big advantage is that it has a very small code base (9KLOC) and interfacing footprint. Unlike wxWidgest or all the other libraries, this code is ready to go and easy to use. Nothing complex, no annoying overhead, or bulky boilerplate, etc. It truely is ready to go out of the box and extensible!
+Why use Glui2 versus all the other hundreds of GUI libraries? One big advantage is that it has a very small code base and interfacing footprint. Unlike wxWidgest or many other libraries, this code is ready to go and easy to use. Object instantiation is easy, there is no complex overhead, or bulky boilerplate code, etc. It truely is ready to go out of the box and extensible!
 
-This library is designed to be used for scientific applications, academic usage, interactive media applications, etc.
+This library can easily be integrated with existing or new OpenGL applications designed for interactive media, scientific applications, academic usage, and more!
 
 === General Design ===
 
-The general design, much like the original GLUI library, was to use a factory-methods approach so that GUI objects were internally managed by the library and quick to create for end-developers. All rendering is done based on an n-degree tree, so that any controller could have any number of child controllers. All controllers (With the exception fo g2Dialog) extends from [g2Controller] which acts as a virtual root class that manages events, inputs, outputs, and theming.
+All on-screen renderable controllers derive from [g2Controller] which manages memory, theming, user input, and provides several rendering functions. g2Controllers allow any number of child objects to be added, as well as be added to any other controller. New properties set to a parent object propagate to child objects. This includes propagation of visibility, enable-states, positioning, and more.
+
+The coordinate system is the same as OpenGL, meaning that the system's origin for all controller's is (0, 0) in the top left, with the x-dimension growing positive right, and the y-dimension growing positive bottom. Note that coordinates are localized relative to the parent object. This means that any root object (objects directly allocated to the root scene using a Glui2 factory-method) have their origin set to (0, 0), while any object allocated as the child of another controller has their origin set to the current position of the parent object.
+
+Controller creation is much like like the original GLUI library: it takes a [http://en.wikipedia.org/wiki/Factory_method_pattern Factory Method] approach. This is done so that any new GUI objects were internally managed by the library and easy to manage over time for end-developers.
+
+[Theming] is based on a theme texture file, a theme description file, and a bitmap font file. When initializing the Glui2 library, the first parameter is the location of a theme description file, while will in itself describe the locations of the texture and bitmap image files. Texture description files only need to describe UI elements the end-developer would like to use in their application.
 
 === GUI Controllers ===
 
@@ -29,12 +35,8 @@ Currently the project implements the following GUI controllers (12 in all), but 
   * Panels as [g2Panel]
   * Cross platform open/save dialogs as [g2Dialog]
 
-=== Programming Interface ===
+=== Coding Style ===
 
-This library takes a "[http://en.wikipedia.org/wiki/Factory_method_pattern Factory Method]" approach to GUI controller instantiation. This is done to internally manage the rendering scene and to simplify object ownership. This also minimizes [http://en.wikipedia.org/wiki/Boilerplate_(text)#Boilerplate_code boilerplate code] associated with scene creation. All GUI controllers are programmatically generated and controlled; it is possible, but not an implemented feature, to open / save / close a user interface language (similar concept to [http://en.wikipedia.org/wiki/XUL XUL]).
+This project uses [http://www.webkit.org/coding/coding-style.html WebKit Coding Style Guidelines] for the most part. There are few exceptions, notably the CamelCase style is used but first letters are generally capitalized as a style rule. All public members start with g2 while private members are "hidden" using `__` (double underscore).
 
-Attaching Glui2 with a new OpenGL application or existing codebase is easy! Simply instantiate a Glui2 controller object and bind any overloaded callbacks you want with GLUT's own interface. To create UI Controllers (GUI elements), use the factory methods (such as "Glui2::addLabel(...)") at any point in your code. To make sure everything is drawn in the right order, call the "Glui2::Render()" function right at the end of your own rendering cycle. That's it! It's as simple as:
-
-  # *Instantiate* a [glui2] object and rebind with your (new or old) GLUT functions
-  # Using the [glui2] *factory methods*, create all your GUI controllers
-  # Make sure to explicitly call the ... WIP
+The code is string const-correct, does C++ style memory allocations (via new / delete operator), but rarely uses C++ STL classes.

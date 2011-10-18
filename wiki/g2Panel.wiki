@@ -9,6 +9,14 @@ A tiled background and placement manager for GUI controllers. A panel allows end
 == Factory Method ==
 
 {{{
+g2Panel* AddPanel(g2Anchor AnchorFlags, const char* Title = NULL)
+}}}
+
+_AddPanel_ will internally allocate and manage a newly created g2Panel. The given anchor defines the placement and size of the panel. A title argument, being optional, will set the current title of the window-like panel.
+
+== Function Members ==
+
+{{{
 g2Panel(g2Controller* Parent, g2Theme* MainTheme, g2Anchor Anchors = g2Anchor_None, const char* Title = NULL)
 }}}
 Panel constructor

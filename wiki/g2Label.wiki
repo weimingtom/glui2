@@ -1,4 +1,4 @@
-http://www.cores2.com/files/Glui2/g2Button.png
+http://www.cores2.com/files/Glui2/g2Label.png
 
 == About ==
 

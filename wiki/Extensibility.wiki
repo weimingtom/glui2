@@ -1,1 +1,56 @@
-How do I create my own g2Controllers and call them in an application? Example4 is a great example of such things...
+=== About ===
+Glui2 allows you to easily create your own new on-screen controllers. Each controller should derive from the root controller class [g2Controller] and can be instantiated as a normal object. Since controllers always need a parent controller, use your main [Glui2]'s "GetRootController()" function.
+
+=== Usage ===
+To create your own controller, you will need to create a class that derives from [g2Controller] and passes both the parent object and a pointer to a theme object. The best approach, as mentioned above, is to do pass your main Glui2's root controller (using "GetRootController()") and theme "GetMainTheme()".
+
+Your class should overload the following class members from g2Controller to benefit from the described features: (_note that none of these have to be overloaded, but each overloaded function provides access to core features associated with user interface elements_)
+
+{{{
+void Update(float dT)
+}}}
+
+_Description:_ Get's the amount of time, in fractions of seconds, since the last update was called.
+
+
+{{{
+void Render(int x, int y)
+}}}
+
+_Description:_ Called during the parent's rendering cycle, used for rendering your own custom geometry. Refer to the rendering features of [g2Controller] to learn what functions are available to your render routine. Note that the given (x, y) position is the origin (top-left) of where you should draw your object (as a global screen coordinate). This is different from the position returned through "GetPos(...)" which is your local offset.
+
+{{{
+void GetCollisionRect(int* Width, int* Height)
+}}}
+
+_Description:_ Called when the user-input handler needs to know what your controller's geometry is. This is used for determining user-input states and whether or not you should handle input events. If your controller will not handle user events, either set both pointer-values to 0 (zero) or do not implement the function.
+
+{{{
+void WindowResizeEvent(int NewWidth, int NewHeight)
+}}}
+
+_Description:_ When the application's window is resized, the new width and height are given to your controller through this function.
+
+{{{
+void KeyEvent(unsigned char key, bool IsSpecial)
+}}}
+
+_Description:_ If the user has this controller active (meaning it was fully clicked-through), then any future key-board events will be sent. Key is a one-to-one mapping of ASCII characters, while IsSpecial declared wether or not the key pressed is a non-ascii key (e.g. Left Key, Right Key, etc.).
+
+{{{
+void MouseClick(g2MouseButton button, g2MouseClick state, int x, int y)
+}}}
+
+_Description:_ A localized mouse event, meaning the given coordinates are relative to your controller's origin, but the data is given regardless of wether or not it is colliding within your controller's collision box. Overload "GetCollisionRect(...)" to define your collision geometry and then use "InController(...)" as a quick method of verifying if the given coordinates are within your geometry.
+
+{{{
+void MouseHover(int x, int y)
+}}}
+
+_Description:_ A localized mouse event, meaning the given coordinates are relative to your controller's origin, regardless of whether or not which controller is active.
+
+{{{
+void MouseDrag(int x, int y)
+}}}
+
+_Description:_ A localized mouse event, meaning the given coordinates are relative to your controller's origin, and is only giving if the start of the drag even was within your controller.

@@ -2,33 +2,33 @@
 
 _Windows XP Example:_
 
-http://i.imgur.com/Yy5LZ.png
+http://www.cores2.com/files/Glui2/g2Pic1.png
 
 
 _Linux Xorg Example:_
 
-http://i.imgur.com/34DIX.png
+http://www.cores2.com/files/Glui2/g2Pic2.png
 
 
 _Windows Theming Example:_
 
-http://i.imgur.com/0Ys05.png
+http://www.cores2.com/files/Glui2/g2Pic3.png
 
 
 _"Blue Theme" Custom Theming Example:_
 
-http://i.imgur.com/rbpMR.png
+http://www.cores2.com/files/Glui2/g2Pic4.png
 
 _In-Line Console Example_
 
-http://i.imgur.com/WkE3p.png
+http://www.cores2.com/files/Glui2/g2Pic5.png
 
 
 _Real-World Example Application:_
 
-http://i.imgur.com/Qxgq3.png
+http://www.cores2.com/files/Glui2/g2Pic6.png
 
 
 _Custom Controller Extension Example:_
 
-http://i.imgur.com/j4UDf.png
+http://www.cores2.com/files/Glui2/g2Pic7.png

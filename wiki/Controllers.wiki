@@ -1,1 +1,0 @@
-Go through g2Controller; should redirect here from g2Controller

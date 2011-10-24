@@ -53,6 +53,12 @@ enum g2ThemeElement
     g2Theme_SliderButton,
     g2Theme_SliderButton_Pressed,
     g2Theme_SliderButton_Disabled,
+    
+    // Slider (vertical)
+    g2Theme_VSlider,
+    g2Theme_VSliderButton,
+    g2Theme_VSliderButton_Pressed,
+    g2Theme_VSliderButton_Disabled,
 };
 }}}
 Enumeration of all built-in GUI controller element types
@@ -80,6 +86,11 @@ Standard constructor and destructor
 void Load(const char* ThemeFile)
 }}}
 Attempts to load a configuration file
+
+{{{
+const char* const GetElementName(g2ThemeElement ElementType);
+}}}
+Return the theme name based on the element type; may return null of the index is not in the element-name set
 
 {{{
 bool GetComponent(g2ThemeElement Element, float* tSrcX = NULL, float* tSrcY = NULL, float* tSrcWidth = NULL, float* tSrcHeight = NULL, int* width = NULL, int* height = NULL, GLuint* textID = NULL)

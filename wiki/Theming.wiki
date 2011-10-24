@@ -8,7 +8,7 @@ Configuration files closely resemble [http://en.wikipedia.org/wiki/INI_file Wind
 
 Multi-line key-value strings (as an example, a long string of text) have to have all new lines started with a 4-spaces; a tab is not a valid spacing mechanism. See the example below.
 
-As of now there are 28 sections, one general and 27 for different GUI skin elements. In total there are 9 skinnable elements, with multiple states and sub-components each (for example, with the horizontal slider, you need to define the slider itself, the slider's button, and a disabled button state geometry).
+As of now there are 32 sections; one that is theme-general and 31 for different GUI skin elements. In total there are 9 skinnable elements, with multiple states and sub-components each (for example, with the horizontal slider, you need to define the slider itself, the slider's button, and a disabled button state geometry).
 
 ==== Example ====
 
@@ -74,3 +74,8 @@ The following is a list of all the sections and keys, describing what they shoul
   * [SliderButton]
   * [SliderButton_Pressed]
   * [SliderButton_Disabled]
+
+  * [VSlider]
+  * [VSliderButton]
+  * [VSliderButton_Pressed]
+  * [VSliderButton_Disabled]

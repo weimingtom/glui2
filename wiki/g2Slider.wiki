@@ -4,7 +4,7 @@ http://www.cores2.com/files/Glui2/g2Slider.png
 
 _[http://code.google.com/p/glui2/source/browse/trunk/Glui2/g2Slider.h g2Slider Header File]_
 
-A floating-point value selector; derives from [g2Controller] and conceptually similar to [g2Spinner]. Based on the value of the slider icon over the slider rail, a floating point value can be read.
+A floating-point value selector; derives from [g2Controller] and conceptually similar to [g2Spinner]. Based on the value of the slider icon over the slider rail, a floating point value can be read. This controller can be rendered both horizontally (default) and vertically.
 
 == Factory Method ==
 
@@ -45,6 +45,16 @@ Set the width of the button in pixels
 bool InController(int x, int y)
 }}}
 Define controller geometry
+
+{{{
+void SetVertical(bool Vertical)
+}}}
+Sets the controller to be in vertical mode
+
+{{{
+bool GetVertical()
+}}}
+Returns true if the controller is vertical; false otherwise
 
 == Notes ==
 

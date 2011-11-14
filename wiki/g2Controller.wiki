@@ -78,6 +78,8 @@ Get the controller state encoded as a series of bit-flags. This is a powerful fu
 
 This means that if the user is holding down the left-mouse button on a controller, this function will return a value such that it will have the bit associated with the left-mouse button press is always high (1). The exception is that a full click-through button event will only return that high-bit flag once, and all other subsequent calls (unless the user generates another click-through event) returns a low-bit.
 
+Essentially this function should only be called once per update, or once per mouse event.
+
 {{{
 bool GetActive()
 }}}
